@@ -1,6 +1,6 @@
 import os
 from read import read_tsv_file
-from tree import RelationTree
+from tree import get_relation_tree
 
 if __name__=='__main__':
     print('Démarrage du programme principal ...')
@@ -15,7 +15,7 @@ if __name__=='__main__':
     relations = read_tsv_file(RELATION_PATH)
 
     print("Recherche de Télérama ...")
-    tree = RelationTree(relations, 'Télérama')
+    tree = get_relation_tree(relations, 'Télérama')
     print(tree)
 
     
