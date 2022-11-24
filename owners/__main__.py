@@ -1,5 +1,6 @@
 import os
 from read import read_tsv_file
+from tree import RelationTree
 
 if __name__=='__main__':
     print('Démarrage du programme principal ...')
@@ -13,8 +14,8 @@ if __name__=='__main__':
     print('Lecture du fichier relations_medias_francais.tsv')
     relations = read_tsv_file(RELATION_PATH)
 
-    for line in medias:
-        print(line)
+    print("Recherche de Télérama ...")
+    tree = RelationTree(relations, 'Télérama')
+    print(tree)
 
-    for line in relations:
-        print(line)
+    
