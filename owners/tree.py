@@ -26,5 +26,8 @@ class RelationTreeList(list):
 
 def get_relation_tree(data: list, name: str) -> RelationTree:
     matches = find_relations_by_target_name(data, name)
+    if len(matches) == 0:
+        print('Erreur : aucun média trouvé pour "' + name + '"')
+        exit(1)
     return RelationTree(data, matches[0])
     

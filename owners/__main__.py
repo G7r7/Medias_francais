@@ -1,8 +1,16 @@
 import os
+import sys
 from read import read_tsv_file
 from tree import get_relation_tree
 
 if __name__=='__main__':
+    # total arguments
+    if len(sys.argv) != 2:
+        print('usage: python owners MEDIA_NAME')
+        exit(1)
+    else:
+        media_name = sys.argv[1]
+
     print('Démarrage du programme principal ...')
 
     current_dir = os.path.dirname(__file__)
@@ -14,8 +22,8 @@ if __name__=='__main__':
     print('Lecture du fichier relations_medias_francais.tsv')
     relations = read_tsv_file(RELATION_PATH)
 
-    print("Recherche de Télérama ...")
-    tree = get_relation_tree(relations, 'Télérama')
+    print("Recherche de " + media_name + " ...")
+    tree = get_relation_tree(relations, media_name)
     print(tree)
 
     
