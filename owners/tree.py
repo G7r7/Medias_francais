@@ -6,6 +6,18 @@ class RelationTree:
         self.root = root
         self.list = RelationTreeList(data, root.origine)
 
+    def __str__(self, level=0):
+        ret = "\t"*level \
+            + self.root.cible \
+            + '-' \
+            + self.root.valeur \
+            + '-' \
+            + self.root.origine \
+            + "\n"
+        for tree in self.list:
+            ret += tree.__str__(level+1)
+        return ret
+
 class RelationTreeList(list):
     def __init__(self, data: list, name: str):
         matches = find_relations_by_target_name(data, name)
