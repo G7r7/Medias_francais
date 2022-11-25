@@ -2,6 +2,7 @@ import os
 import sys
 from read import read_tsv_file
 from tree import get_relation_tree
+from owner import OwnershipList
 
 if __name__=='__main__':
     # total arguments
@@ -25,5 +26,8 @@ if __name__=='__main__':
     print("Recherche de " + media_name + " ...")
     tree = get_relation_tree(relations, media_name)
     print(tree)
+
+    owners = OwnershipList(tree)
+    print(owners)
 
     

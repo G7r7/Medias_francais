@@ -18,7 +18,7 @@ class RelationTree:
             ret += tree.__str__(level+1)
         return ret
 
-class RelationTreeList(list):
+class RelationTreeList(List[RelationTree]):
     def __init__(self, data: list, name: str):
         matches = find_relations_by_target_name(data, name)
         for match in matches:
