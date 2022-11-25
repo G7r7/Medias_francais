@@ -20,7 +20,7 @@ class OwnershipList:
         return ret
 
     def calculate(self, tree: RelationTree, value=1.0):
-        value = value * (float(tree.root.valeur) / 100)
+        value = value * (float(tree.root.valeur.replace(',', '.')) / 100)
         if len(tree.list) == 0:
             self.ownerships.append(
                 Ownership(value, tree.root.origine)
