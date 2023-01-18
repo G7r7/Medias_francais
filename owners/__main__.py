@@ -27,7 +27,7 @@ if __name__=='__main__':
     tree = get_relation_tree(relations, media_name)
     print(tree)
 
-    owners = OwnershipList(tree)
+    owners = OwnershipList(tree, medias)
     print(owners)
 
     
