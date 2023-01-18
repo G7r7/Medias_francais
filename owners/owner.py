@@ -20,7 +20,13 @@ class OwnershipList:
         return ret
 
     def calculate(self, tree: RelationTree, value=1.0):
-        value = value * (float(tree.root.valeur.replace(',', '.')) / 100)
+        try:
+            multiplier = float(tree.root.valeur.replace(',', '.'))
+        except:
+            print(f"Avertissement : relation ignorée, valeur \"{tree.root.valeur}\" - \"{tree.root.origine}\"")
+            multiplier = 100.0
+
+        value = value * multiplier / 100
         if len(tree.list) == 0:
             self.ownerships.append(
                 Ownership(value, tree.root.origine)
